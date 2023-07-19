@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const films = [
+        "Inception",
+        "The Shawshank Redemption",
+        "The Godfather",
+        "The Dark Knight",
+        "Pulp Fiction",
+        "Interstellar",
+        "Forrest Gump",
+        "The Matrix",
+        "Avengers: Endgame",
+        "Avengers: bukN",
+      ];
+      const parArr = [];
+      let inline = [];
+
+      films.map((film, arr) => {
+        arr = arr + 1;
+        inline.push(film);
+        if (!(arr % 3) || arr == films.length) {
+          parArr.push(inline);
+          inline = [];
+        }
+      });
+      console.log(parArr);
+      const extractMessage = (message) => {
+        const command = message[0].substring(1);
+        message.shift();
+        const keyword = message.join(" ");
+        return { command, keyword };
+      };
+      const nme = "/nama kamu siapa haaa?";
+      console.log(extractMessage(nme.split(" ")));
+
+      const saya = {
+        nama: "syibran",
+        umur: 19,
+        kelas: 12,
+      };
+      console.log((saya.umur || saya.nama) + " dan " + saya.kelas);
+    </script>
+  </body>
+</html>
