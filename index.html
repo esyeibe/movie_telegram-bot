@@ -8,45 +8,34 @@
   </head>
   <body>
     <script>
-      const films = [
-        "Inception",
-        "The Shawshank Redemption",
-        "The Godfather",
-        "The Dark Knight",
-        "Pulp Fiction",
-        "Interstellar",
-        "Forrest Gump",
-        "The Matrix",
-        "Avengers: Endgame",
-        "Avengers: bukN",
-      ];
-      const parArr = [];
-      let inline = [];
+      const sayHello = (name) => {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            if (name) {
+              resolve(`hello ${name}, good morning`);
+            } else {
+              reject("name is empty");
+            }
+          }, 2000);
+        });
+      };
 
-      films.map((film, arr) => {
-        arr = arr + 1;
-        inline.push(film);
-        if (!(arr % 3) || arr == films.length) {
-          parArr.push(inline);
-          inline = [];
+      const callName = async (name) => {
+        const text = await sayHello(name);
+        console.log(text);
+        return text;
+      };
+
+      const hello = async (name) => {
+        try {
+          const nama = await callName(name);
+          console.log(nama);
+        } catch (err) {
+          console.log(err);
         }
-      });
-      console.log(parArr);
-      const extractMessage = (message) => {
-        const command = message[0].substring(1);
-        message.shift();
-        const keyword = message.join(" ");
-        return { command, keyword };
       };
-      const nme = "/nama kamu siapa haaa?";
-      console.log(extractMessage(nme.split(" ")));
 
-      const saya = {
-        nama: "syibran",
-        umur: 19,
-        kelas: 12,
-      };
-      console.log((saya.umur || saya.nama) + " dan " + saya.kelas);
+      hello("syibran");
     </script>
   </body>
 </html>
