@@ -10,17 +10,15 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 // bassic command
 bot.start(start);
 bot.help(help);
-// bot.settings((ctx) => {
-//   try {
-//     bot.telegram.sendPhoto(
-//       ctx.from.id,
-//       "https://www.themoviedb.org/t/p/w342/yrrsBUQzBYkPn9btngf5DTHOSyA.jpg",
-//       {}
-//     );
-//   } catch (err) {
-//     console.log(err);
-//   }
-// });
+bot.settings((ctx) => {
+  bot.telegram
+    .sendPhoto(
+      ctx.from.id,
+      "https://www.themoviedb.org/t/p/w342/yrrsBUQzBYkPn9btngf5DTHOSyA.jpg",
+      {}
+    )
+    .catch((err) => console.log(err.response.error_code));
+});
 
 bot.command(["movie", "tv"], search);
 
