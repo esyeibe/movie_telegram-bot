@@ -11,7 +11,8 @@
   "author": "branmalawi",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.3.1",
-    "telegraf": "^4.12.2"
+    "dotenv": "^16.4.5",
+    "punycode": "^2.3.1",
+    "telegraf": "^4.16.3"
   }
 }
